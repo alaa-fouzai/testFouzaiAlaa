@@ -1,0 +1,56 @@
+<section class="content">
+
+<div class="container">
+    <!-- Content here -->
+    <div class="card col-md-3 w-100 h-100" >
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <p class="card-text mytextclass">This is the users List.<button (click)="addNewUser()" class="btn btn-primary mybuttonclass"> + Add New User</button></p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" ><mat-icon>search</mat-icon></span>
+            </div>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a user by any property">
+          </div>
+          <div class="table-responsive text-nowrap">
+          <table matSort (matSortChange)="sortData($event)" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th mat-sort-header="delete">Delete </th>
+                        <th  mat-sort-header="id">Id </th>
+                        <th mat-sort-header="imageUrl">ImageUrl</th>
+                        <th mat-sort-header="firstName">FirstName</th>
+                        <th mat-sort-header="lastName">LastName </th>
+                        <th mat-sort-header="email">Email</th>
+                        <th mat-sort-header="contactNumber">Contact Number </th>
+                        <th mat-sort-header="age">Age </th>
+                        <th mat-sort-header="dob">Dob </th>
+                        <th mat-sort-header="salary">Salary </th>
+                        <th mat-sort-header="address">Address </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users | search:searchText | paginate: { itemsPerPage: itemsPP, currentPage: p } ">
+                        <td class="trashholder"><mat-icon class="trash" aria-hidden="false" aria-label="Example home icon" fontIcon="delete" (click)="deleteUser(user.id)"></mat-icon></td>
+                        <td>{{user.id}}</td>
+                        <td>{{user.imageUrl}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.contactNumber}}</td>
+                        <td>{{user.age}}</td>
+                        <td>{{user.dob}}</td>
+                        <td>{{user.salary}}</td>
+                        <td>{{user.address}}</td>
+                    </tr>
+                </tbody>
+          </table>
+        </div>
+            <div class="pControle">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <p style="margin-left: auto;">Items per page :<input type="number" style="width: 7ch;" [(ngModel)]="itemsPP" ></p>
+            </div>
+        </div>
+      </div>
+</div>
+</section>

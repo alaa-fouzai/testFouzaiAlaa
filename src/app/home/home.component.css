@@ -1,0 +1,39 @@
+.trash{ 
+    cursor: pointer; 
+    margin: 0 auto;
+    text-align: center;
+    color: #000000;
+}
+.trashholder{
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #cbcbcb;
+    color: #000000;
+  }
+table { 
+
+    text-align: center;
+    width:100%;
+}
+tr { 
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+td {
+    overflow: hidden;
+    white-space: nowrap;
+  padding: 8px;
+}
+.mytextclass{
+    width: 100%;
+    margin-bottom: 16px;
+}
+.mybuttonclass{
+    float: right;
+}
+.pControle{
+margin-top: 8px;
+display: flex;
+}
